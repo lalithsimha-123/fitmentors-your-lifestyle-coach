@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, CheckCircle2 } from "lucide-react";
+import rajathImage from "@/assets/rajath.avif";
 
 const certifications = ["ACE", "ASCA", "ISSA", "GGU", "IFAA", "F45"];
 
@@ -29,15 +30,11 @@ const AboutSection = () => {
           >
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-card flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <span className="font-display text-5xl font-bold text-primary">RS</span>
-                  </div>
-                  <h3 className="font-display text-2xl font-bold mb-2">Rajath Simha</h3>
-                  <p className="text-muted-foreground">Founder, Fitmentors</p>
-                </div>
-              </div>
+              <img
+                src={rajathImage}
+                alt="Rajath Simha - Founder of Fitmentors"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Floating badge */}

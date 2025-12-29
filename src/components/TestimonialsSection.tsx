@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote, TrendingDown } from "lucide-react";
+import jattepaImage from "@/assets/jattepa.avif";
+import rohanImage from "@/assets/rohan.avif";
+import jyothsnaImage from "@/assets/jyothsna.avif";
 
 const testimonials = [
   {
@@ -10,6 +13,7 @@ const testimonials = [
     name: "Jattepa",
     location: "Bangalore",
     transformation: null,
+    image: jattepaImage,
   },
   {
     headline: "141 kg to 95 kg — and still progressing",
@@ -17,6 +21,7 @@ const testimonials = [
     name: "Rohan K",
     location: "",
     transformation: "141 kg → 95 kg (ongoing)",
+    image: rohanImage,
   },
   {
     headline: "Visible changes in weeks. Real transformation in months",
@@ -24,6 +29,7 @@ const testimonials = [
     name: "Jyothsna Nayak",
     location: "",
     transformation: "96 kg → 68 kg",
+    image: jyothsnaImage,
   },
 ];
 
@@ -88,11 +94,18 @@ const TestimonialsSection = () => {
               )}
 
               {/* Author */}
-              <div className="pt-6 border-t border-border">
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                {testimonial.location && (
-                  <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                )}
+              <div className="pt-6 border-t border-border flex items-center gap-4">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
+                />
+                <div>
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  {testimonial.location && (
+                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
