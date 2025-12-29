@@ -5,6 +5,7 @@ import SocialProofStrip from "@/components/SocialProofStrip";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import PricingSection from "@/components/PricingSection";
+import FAQSection from "@/components/FAQSection";
 import LeadFormSection from "@/components/LeadFormSection";
 import Footer from "@/components/Footer";
 import StickyWhatsApp from "@/components/StickyWhatsApp";
@@ -32,6 +33,7 @@ const Index = () => {
         <TestimonialsSection />
         <AboutSection />
         <PricingSection />
+        <FAQSection />
         <LeadFormSection />
         <Footer />
         <StickyWhatsApp />
