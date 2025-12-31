@@ -60,10 +60,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10"
           >
-            Sustainable fitness coaching for busy professionals.
-            <br />
-            No extremes. No burnout. Just disciplined progress.
-          </motion.p>
+            Personalized online and in-person fitness coaching in Bengaluru and India.            <br />
+            Get custom workout plans, nutrition guidance, and accountability coaching.          </motion.p>
 
           {/* CTAs */}
           <motion.div
