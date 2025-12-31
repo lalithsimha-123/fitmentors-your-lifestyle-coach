@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# FitMentors - Your Lifestyle Coach
 
-## Project info
+A modern web application designed to help users achieve their fitness and lifestyle goals through personalized coaching and tracking.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Project Description
 
-## How can I edit this code?
+FitMentors is a comprehensive lifestyle coaching platform built with modern web technologies. The application provides users with tools to track their progress, receive guidance, and build sustainable healthy habits.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technology Stack
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Next-generation frontend tooling
+- **TypeScript** - Type-safe JavaScript
+- **React** - A JavaScript library for building user interfaces
+- **shadcn-ui** - High-quality, reusable React components
+- **Tailwind CSS** - Utility-first CSS framework
 
-## How can I deploy this project?
+## Getting Started
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Prerequisites
 
-## Can I connect a custom domain to my Lovable project?
+- Node.js (v18 or higher)
+- npm
 
-Yes, you can!
+### Installation
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd fitmentors-your-lifestyle-coach
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The application will open in your browser at `http://localhost:5173`.
+
+## Available Scripts
+
+- `npm run dev` - Start the development server with hot reload
+- `npm run build` - Build the application for production
+- `npm run build:dev` - Build with development mode enabled
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint to check code quality
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable React components
+├── hooks/         # Custom React hooks
+├── pages/         # Page components
+├── lib/           # Utility functions and helpers
+├── assets/        # Static assets (images, fonts, etc.)
+├── App.tsx        # Root component
+└── main.tsx       # Application entry point
+```
+
+## Deployment
+
+To deploy this application:
+
+1. Build the production bundle:
+```bash
+npm run build
+```
+
+2. The `dist/` folder contains all static files ready for deployment
+
+3. Deploy to your hosting provider (GoDaddy, Vercel, Netlify, etc.)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request with improvements or bug fixes.
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+For questions or support, please open an issue in the repository.
