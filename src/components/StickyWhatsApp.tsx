@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 const StickyWhatsApp = () => {
   const handleWhatsApp = () => {
     window.open(
-      "https://wa.me/919876543210?text=Hi%20Rajath,%20I%27m%20interested%20in%20fitness%20coaching",
+      "https://wa.me/918792467571?text=Hi%20Rajath,%20I%27m%20interested%20in%20fitness%20coaching",
       "_blank"
     );
   };
