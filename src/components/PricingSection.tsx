@@ -104,7 +104,7 @@ const PricingSection = () => {
             Programs & Pricing
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Choose Your <span className="text-gradient">Transformation</span>
+            Choose Your Coaching Package
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Every program is outcome-focused. Pick what fits your lifestyle, not the other way around.
