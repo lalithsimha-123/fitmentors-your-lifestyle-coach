@@ -66,7 +66,7 @@ const AboutSection = () => {
               Meet Your Coach
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Discipline Over <span className="text-gradient">Motivation</span>
+              Meet Your Professional Fitness Coach
             </h2>
             
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
