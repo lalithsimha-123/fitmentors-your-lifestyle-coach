@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
             Success Stories
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Real People. <span className="text-gradient">Real Results.</span>
+            Success Stories from Our Clients
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Don't just take our word for it. Here's what our clients have to say about their transformation journey.
