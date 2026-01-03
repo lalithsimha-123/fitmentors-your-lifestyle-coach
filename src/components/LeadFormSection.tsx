@@ -31,12 +31,23 @@ const LeadFormSection = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast.success("Thanks! We'll reach out within 24 hours.");
-    setFormData({ name: "", goal: "", whatsapp: "" });
-    setIsSubmitting(false);
+try {
+      const response = await fetch('/.netlify/functions/submitLead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Failed to submit form');
+
+      const data = await response.json();
+      toast.success('Thanks! We\'ll reach out within 24 hours.');
+      setFormData({ name: '', goal: '', whatsapp: '' });
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Submission failed');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
