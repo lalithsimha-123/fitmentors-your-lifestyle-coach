@@ -42,26 +42,34 @@ const handler: Handler = async (event) => {
 
     // Send email notification via Formspree
     try {
-      const formData = new URLSearchParams();
-      formData.append('name', leadData.name);
-      formData.append('goal', leadData.goal);
-      formData.append('whatsapp', leadData.whatsapp);
-      formData.append('timestamp', leadData.createdAt.toISOString());
-      formData.append('ip', leadData.ip || '');
-      formData.append('_subject', `New Lead: ${leadData.name}`);
-      formData.append('_replyto', leadData.whatsapp);
+      // Build form data as URL-encoded string
+      const params = new URLSearchParams();
+      params.append('name', leadData.name);
+      params.append('goal', leadData.goal);
+      params.append('whatsapp', leadData.whatsapp);
+      params.append('timestamp', leadData.createdAt.toISOString());
+      params.append('ip', leadData.ip || '');
+      params.append('_subject', `New Lead: ${leadData.name}`);
+      params.append('_replyto', leadData.whatsapp);
 
       const emailResponse = await fetch('https://formspree.io/f/mlgdyqea', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json',
         },
-        body: formData.toString(),
+        body: params.toString(),
       });
 
+      console.log('Email response status:', emailResponse.status);
+      const responseText = await emailResponse.text();
+      console.log('Email response:', responseText);
+
       if (!emailResponse.ok) {
-        console.error('Email notification failed:', emailResponse.statusText);
+        console.error('Email notification failed:', emailResponse.statusText, responseText);
         // Don't fail the main request, just log the email error
+      } else {
+        console.log('Email notification sent successfully');
       }
     } catch (emailError) {
       console.error('Error sending email notification:', emailError);
