@@ -50,7 +50,6 @@ const handler: Handler = async (event) => {
       params.append('timestamp', leadData.createdAt.toISOString());
       params.append('ip', leadData.ip || '');
       params.append('_subject', `New Lead: ${leadData.name}`);
-      params.append('_replyto', leadData.whatsapp);
 
       const emailResponse = await fetch('https://formspree.io/f/mlgdyqea', {
         method: 'POST',
