@@ -37,20 +37,41 @@ const handler: Handler = async (event) => {
       ip: event.headers['client-ip'] || event.headers['x-forwarded-for'],
     };
 
-    // Log the lead data (for debugging/monitoring)
+    // Log the lead data
     console.log('New lead submitted:', leadData);
 
-    // TODO: Implement your preferred notification method here:
-    // Option 1: Send email via Netlify email service
-    // Option 2: Send to a webhook service (Zapier, Make, etc.)
-    // Option 3: Store in a database
-    // Option 4: Send to Slack/Discord webhook
+    // Send email notification via Formspree
+    try {
+      const emailResponse = await fetch('https://formspree.io/f/xyzpqwer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: leadData.name,
+          goal: leadData.goal,
+          whatsapp: leadData.whatsapp,
+          timestamp: leadData.createdAt.toISOString(),
+          ip: leadData.ip,
+          _subject: `New Lead: ${leadData.name}`,
+          _replyto: leadData.whatsapp,
+        }),
+      });
+
+      if (!emailResponse.ok) {
+        console.error('Email notification failed:', emailResponse.statusText);
+        // Don't fail the main request, just log the email error
+      }
+    } catch (emailError) {
+      console.error('Error sending email notification:', emailError);
+      // Continue anyway - form was submitted successfully even if email failed
+    }
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        message: 'Lead submitted successfully',
+        message: 'Lead submitted successfully. We will contact you soon!',
         timestamp: leadData.createdAt,
       }),
     };
