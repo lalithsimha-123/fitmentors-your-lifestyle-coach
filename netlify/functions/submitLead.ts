@@ -42,20 +42,21 @@ const handler: Handler = async (event) => {
 
     // Send email notification via Formspree
     try {
+      const formData = new URLSearchParams();
+      formData.append('name', leadData.name);
+      formData.append('goal', leadData.goal);
+      formData.append('whatsapp', leadData.whatsapp);
+      formData.append('timestamp', leadData.createdAt.toISOString());
+      formData.append('ip', leadData.ip || '');
+      formData.append('_subject', `New Lead: ${leadData.name}`);
+      formData.append('_replyto', leadData.whatsapp);
+
       const emailResponse = await fetch('https://formspree.io/f/mlgdyqea', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-          name: leadData.name,
-          goal: leadData.goal,
-          whatsapp: leadData.whatsapp,
-          timestamp: leadData.createdAt.toISOString(),
-          ip: leadData.ip,
-          _subject: `New Lead: ${leadData.name}`,
-          _replyto: leadData.whatsapp,
-        }),
+        body: formData.toString(),
       });
 
       if (!emailResponse.ok) {
