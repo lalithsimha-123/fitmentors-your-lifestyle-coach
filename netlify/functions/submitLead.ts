@@ -1,12 +1,4 @@
 import { Handler } from '@netlify/functions';
-import { MongoClient } from 'mongodb';
-import axios from 'axios';
-
-const mongoUri = process.env.MONGODB_URI!;
-const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN!;
-const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID!;
-const twilioWhatsAppNumber = process.env.TWILIO_WHATSAPP_FROM!;
-const recipientWhatsAppNumber = process.env.RECIPIENT_WHATSAPP_NUMBER!;
 
 interface LeadData {
   name: string;
@@ -36,14 +28,7 @@ const handler: Handler = async (event) => {
       };
     }
 
-    // Connect to MongoDB
-    const client = new MongoClient(mongoUri);
-    await client.connect();
-
-    const db = client.db('fitmentors');
-    const leadsCollection = db.collection('leads');
-
-    // Create lead document
+    // Create lead data object
     const leadData: LeadData = {
       name,
       goal,
@@ -52,35 +37,21 @@ const handler: Handler = async (event) => {
       ip: event.headers['client-ip'] || event.headers['x-forwarded-for'],
     };
 
-    // Insert into MongoDB
-    const result = await leadsCollection.insertOne(leadData);
+    // Log the lead data (for debugging/monitoring)
+    console.log('New lead submitted:', leadData);
 
-    // Send WhatsApp message via Twilio
-    const whatsappMessage = `New Lead Submitted!\n\nName: ${name}\nGoal: ${goal}\nWhatsApp: ${whatsapp}\n\nTimestamp: ${new Date().toLocaleString()}`;
-
-    await axios.post(
-      `https://api.twilio.com/2010-04-01/Accounts/${twilioAccountSid}/Messages.json`,
-      new URLSearchParams({
-        From: twilioWhatsAppNumber,
-        To: recipientWhatsAppNumber,
-        Body: whatsappMessage,
-      }),
-      {
-        auth: {
-          username: twilioAccountSid,
-          password: twilioAuthToken,
-        },
-      }
-    );
-
-    await client.close();
+    // TODO: Implement your preferred notification method here:
+    // Option 1: Send email via Netlify email service
+    // Option 2: Send to a webhook service (Zapier, Make, etc.)
+    // Option 3: Store in a database
+    // Option 4: Send to Slack/Discord webhook
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         message: 'Lead submitted successfully',
-        leadId: result.insertedId,
+        timestamp: leadData.createdAt,
       }),
     };
   } catch (error) {
