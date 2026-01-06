@@ -42,7 +42,7 @@ const handler: Handler = async (event) => {
 
     // Send email notification via Formspree
     try {
-      const emailResponse = await fetch('https://formspree.io/f/xyzpqwer', {
+      const emailResponse = await fetch('https://formspree.io/f/mlgdyqea', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
