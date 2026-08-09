@@ -4,8 +4,8 @@ import { useRef, useEffect, useState } from "react";
 import { TrendingUp, Users, Award, Clock } from "lucide-react";
 
 const metrics = [
-  { icon: Users, value: 100, suffix: "+", label: "Clients Trained" },
-  { icon: Clock, value: 10, suffix: "+", label: "Years Experience" },
+  { icon: Users, value: 1000, suffix: "+", label: "Clients Trained" },
+  { icon: Clock, value: 13, suffix: "+", label: "Years Experience" },
   { icon: TrendingUp, value: 95, suffix: "%", label: "Client Retention" },
   { icon: Award, value: 6, suffix: "", label: "Certifications" },
 ];
