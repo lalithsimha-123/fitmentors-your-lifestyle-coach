@@ -94,12 +94,12 @@ const HeroSection = () => {
             className="mt-16 flex flex-wrap items-center gap-8 text-sm text-muted-foreground"
           >
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-display font-bold text-foreground">10+</span>
+              <span className="text-2xl font-display font-bold text-foreground">13+</span>
               <span>Years Experience</span>
             </div>
             <div className="w-px h-8 bg-border hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-display font-bold text-foreground">100+</span>
+              <span className="text-2xl font-display font-bold text-foreground">1000+</span>
               <span>Clients Transformed</span>
             </div>
             <div className="w-px h-8 bg-border hidden sm:block" />
