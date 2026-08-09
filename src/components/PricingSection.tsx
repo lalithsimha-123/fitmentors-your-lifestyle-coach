@@ -7,7 +7,7 @@ const programs = [
   {
     name: "In-Person Coaching",
     location: "Bangalore Only",
-    price: "₹15,000",
+    price: "₹18,000",
     period: "month",
     bestFor: "People who want hands-on correction and maximum accountability",
     icon: MapPin,
@@ -26,7 +26,7 @@ const programs = [
   {
     name: "Online Live Training",
     location: "Global",
-    price: "₹12,000",
+    price: "₹15,000",
     period: "month",
     bestFor: "Busy professionals who want real-time coaching from anywhere",
     icon: Globe,
@@ -45,7 +45,7 @@ const programs = [
   {
     name: "3-Month Lifestyle Reset",
     location: "Online",
-    price: "₹12,000",
+    price: "₹15,000",
     period: "3 months",
     bestFor: "Sustainable fat loss or strength without live sessions",
     icon: Clock,
@@ -64,7 +64,7 @@ const programs = [
   {
     name: "6-Month Transformation",
     location: "Online",
-    price: "₹22,000",
+    price: "₹24,000",
     period: "6 months",
     bestFor: "Long-term goals, habit building, consistency",
     icon: Star,
