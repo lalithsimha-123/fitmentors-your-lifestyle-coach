@@ -49,7 +49,7 @@ const AboutSection = () => {
                   <Award className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-display text-2xl font-bold">10+</p>
+                  <p className="font-display text-2xl font-bold">13+</p>
                   <p className="text-sm text-muted-foreground">Years Experience</p>
                 </div>
               </div>
